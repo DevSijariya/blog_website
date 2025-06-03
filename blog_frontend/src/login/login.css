@@ -1,10 +1,20 @@
-body {
+.root{
+    background-color: white;
+
+    background: none;
+    background-image: none;
+}
+#login_main_section {
   background-image: url("/images/login_page.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   margin: 0; /* remove default margin */
   height: 100vh; /* ensure body covers viewport */
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 
@@ -16,10 +26,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  display: flex;
 }
 
 .login-form-container {
-  background-color: rgba(255, 255, 255, 0.85);
+ 
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(255, 216, 216, 0.3);
@@ -28,7 +39,7 @@ body {
 }
 
 .login-input {
-  width: 100%;
+  width: 90%;
   padding: 8px;
   margin-top: 4px;
   border-radius: 4px;

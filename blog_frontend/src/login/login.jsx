@@ -20,18 +20,16 @@ const Login = () => {
       localStorage.setItem('access_token', response.data.access);
       localStorage.setItem('refresh_token', response.data.refresh);
 
-      alert('Login successful!');
+      window.location.href="/blog"
       // Redirect if needed
     } catch (err) {
       setError('Invalid username or password');
     }
   };
 
-  
-
   return (
-    <div>
-      <div>
+    <div id="login_main_section">
+      <div className='login-form-container'>
         <h2>Login</h2>
         <form onSubmit={handleLogin}>
           <div>
@@ -42,7 +40,7 @@ const Login = () => {
               onChange={(e) => setUsername(e.target.value)}
               required
               autoComplete="username"
-              style={{ width: '100%', padding: '8px', marginTop: '4px' }}
+              style={{ width: '90%', padding: '8px', marginTop: '4px' }}
             />
           </div>
 
@@ -54,7 +52,7 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
               autoComplete="current-password"
-              style={{ width: '100%', padding: '8px', marginTop: '4px' }}
+              style={{ width: '90%', padding: '8px', marginTop: '4px' }}
             />
           </div>
 
@@ -65,7 +63,7 @@ const Login = () => {
           <button
             style={{
               marginTop: '15px',
-              width: '100%',
+              width: '95%',
               padding: '10px',
               backgroundColor: '#1976d2',
               color: 'white',
