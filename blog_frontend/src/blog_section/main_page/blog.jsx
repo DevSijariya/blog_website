@@ -6,7 +6,7 @@ function Blog() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/posts/")
+    axios.get("http://10.0.0.51:8000/api/posts/")
       .then((response) => {
         setPosts(response.data);
       })
@@ -34,7 +34,7 @@ function Blog() {
                         Our mission is to create a space where information meets inspiration. Grab a coffee and enjoy reading!
                     </li>
                 </ul>
-                <button>Explore</button>
+                <a href="#blog_main_section">Explore</a>
                 </div>
             </div>
 
@@ -44,11 +44,17 @@ function Blog() {
 
       {posts.map(post => (
           <div key={post.id} style={{border: "1px solid #ccc", margin: "10px", padding: "10px"}}>
+          <a href="#">{post.author}</a>
           <h2>{post.title}</h2>
-          <p>{post.content}</p>
-          <small>By {post.author} on {new Date(post.created_at).toLocaleString()}</small>
+          <p className="card_content">{post.content}</p>
+          
         </div>
       ))}
+      </div>
+      <div className="bottom">
+        <div className="form_button">
+          <a href="/blog/page"> Write Your Blog</a>
+        </div>
       </div>
       </div>
     </div>

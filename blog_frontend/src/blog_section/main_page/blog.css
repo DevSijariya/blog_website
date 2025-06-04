@@ -10,11 +10,11 @@ body{
 }
 #blog_main_section {
     padding: 20px;
-    /* justify-content: center;
+    justify-content: center;
     align-items: center;
-    display: flex; */
+    display: flex;
     color: black;
-    /* flex-direction: column; */
+    flex-direction: column;
 }
 #blog_header{
     background-image: url("./images/blog.jpg");
@@ -36,7 +36,10 @@ body{
     
     font-size: 22px;
 }
-#blog_header button{
+#blog_header a{
+    text-decoration: none;
+    color:rgb(151, 200, 196);
+    padding: 25px;
     margin-left: 12%;
     font-size: 22px;
     width: 20%;
@@ -45,8 +48,9 @@ body{
     border:2px solid rgb(151, 200, 196);
     font-family: 'Courier New', Courier, monospace;
     font-weight: 900;
+    border-radius: 10%;
 }
-#blog_header button:hover{
+#blog_header a:hover{
     background-color: rgb(151, 200, 196);
     color:#0b1753;
 }
@@ -58,22 +62,70 @@ body{
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   width: 90%;
+  text-align: center;
+  
 }
 .content_data{
-    width: 70%;
-    text-align: justify;
+    width: 90%;
+    
 }
-
+.card_content{
+    width: 90%;
+    flex-grow: 1;           /* take remaining vertical space */
+    overflow-y: auto;       /* vertical scrollbar when needed */
+    text-align: center;
+    scrollbar-width: none;
+}
 .blogscard > div {
-  background-color: #0b1753;
-  color: white;
-  border-radius: 10px;
-  padding: 20px;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
+    height: 400px;       /* fixed height */
+    overflow: hidden;    /* prevent overflow */
+    display: flex;
+    flex-direction: column;
+    background-color: #0b1753;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+   
 }
 
 .blogscard > div:hover {
-  transform: translateY(-5px);
+    transform: translateY(-5px);
+}
+
+.blogscard p{
+    padding: 15px;
+    font-size: 18px;
+}
+.blogscard a{
+    text-decoration: none;
+    color: white;
+    font-weight: 800;
+    font-size: 20px;
+}
+.bottom{
+    width: 89%;
+    /* border: 2px solid black; */
+    justify-content: end;
+    display: flex;
+    
+}
+.form_button{
+    font-size: 25px;
+    /* background-color: #0b1753; */
+    margin-top: 2%;
+}
+.form_button a{
+    
+    border: 2px solid #0b1753;
+    border-radius: 10px;
+    padding: 20px;
+    color:#0b1753;
+    text-decoration: none;
+}
+.form_button a:hover{
+    background-color:#0b1753;
+    color:white
 }

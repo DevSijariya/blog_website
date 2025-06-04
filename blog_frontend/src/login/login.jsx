@@ -12,7 +12,7 @@ const Login = () => {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:8000/api/token/', {
+      const response = await axios.post('http://10.0.0.51:8000/api/token/', {
         username,
         password,
       });
@@ -20,62 +20,55 @@ const Login = () => {
       localStorage.setItem('access_token', response.data.access);
       localStorage.setItem('refresh_token', response.data.refresh);
 
-      window.location.href="/blog"
+      window.location.href = '/blog';
       // Redirect if needed
     } catch (err) {
       setError('Invalid username or password');
     }
   };
 
+  
+
   return (
-    <div id="login_main_section">
-      <div className='login-form-container'>
+    <div id="login_global">
+      <div id="login_section" className='login-form-container'>
+        <img src="/images/logo.png"></img>
         <h2>Login</h2>
         <form onSubmit={handleLogin}>
-          <div>
-            <label>Username:</label><br />
+          <div class="input_sections">
+            
             <input
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
               autoComplete="username"
-              style={{ width: '90%', padding: '8px', marginTop: '4px' }}
+              placeholder='Username'
             />
           </div>
 
-          <div style={{ marginTop: '10px' }}>
-            <label>Password:</label><br />
+          <div class="input_sections">
+            
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
               autoComplete="current-password"
-              style={{ width: '90%', padding: '8px', marginTop: '4px' }}
+              placeholder='Password'
             />
           </div>
 
           {error && (
             <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>
           )}
-
-          <button
-            style={{
-              marginTop: '15px',
-              width: '95%',
-              padding: '10px',
-              backgroundColor: '#1976d2',
-              color: 'white',
-              border: 'none',
-              borderRadius: '4px',
-              cursor: 'pointer',
-              fontSize: '16px',
-            }}
-            type="submit"
-          >
-            Login
-          </button>
+          <div class="input_sections">
+          <button type="submit"> Login </button>
+           <button type="button"> SignUp </button>
+          </div>
+          <div className="reset_pass">
+            <a href="#">Reset Password</a>
+          </div>
         </form>
       </div>
     </div>

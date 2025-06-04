@@ -1,0 +1,27 @@
+#form_view{
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.rows_data{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 80vw;
+    display: flex; 
+}
+.rows_data input{
+    width: 40%;
+}
+.rows_data textarea{
+    width: 85%;
+    height: 50vh;
+    margin-left: 10px;
+    font-size: 20px;
+}
+#form_view button{
+    width: 100px;
+    margin-left: 100px;
+}

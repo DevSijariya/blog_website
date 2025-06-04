@@ -7,12 +7,14 @@ from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import PostSerializer
+from rest_framework import generics
 
 class PostListAPI(APIView):
     def get(self, request):
         posts = Post.objects.all().order_by('-created_at')
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data)
+    
 def home(request):
     posts = Post.objects.all().order_by('-created_at')
     return render(request, 'home.html', {'posts': posts})
@@ -26,3 +28,7 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
 
 class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
+
+class PostListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Post.objects.all().order_by('-created_at')
+    serializer_class = PostSerializer

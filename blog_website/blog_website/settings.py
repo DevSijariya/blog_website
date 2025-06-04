@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-vo8w=f*j7-q$75&2)xk@xwvz7lljw@xq9s9f#*b=$@sq)ik@k(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -56,9 +56,7 @@ MIDDLEWARE = [
 ]
 
 # Allow your React frontend
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  # Adjust if your React app runs on a different port
-]
+CORS_ALLOW_ALL_ORIGINS = True
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
